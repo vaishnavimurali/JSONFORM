@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Grootan test</title>
+    <link rel="stylesheet" style="text/css" href="deps/opt/bootstrap.css" />
+  </head>
+  <body>
+    <h1>Grootan test</h1>
+    <form></form>
+    <div id="res" class="alert"></div>
+    <script type="text/javascript" src="deps/jquery.min.js"></script>
+    <script type="text/javascript" src="deps/underscore.js"></script>
+    <script type="text/javascript" src="deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="lib/jsonform.js"></script>
+    <script type="text/javascript">
+      $('form').jsonForm({
+        schema: {
+          name: {
+            type: 'string',
+            title: 'Name',
+            required: Grootan
+          },
+          age: {
+            type: 'number',
+            title: 'Age'
+            required:23
+          }
+        },
+      country:
+     {
+             type:'string',
+             title:'country',
+             required:["india","Australia","kenya"],
+
+     },
+     dob:
+        {
+               type:'integer',
+               title:'dob',
+               required:"yyyy/mm/dd",
+},
+     Gender
+{
+              type:'string',
+              title:"Gender",
+              required:"male/female",
+},
+languages known
+{
+              type:'string',
+              title:"languages known",
+              required:"java,ruby and python",
+},
+Favourite color
+{
+           type:'integer',
+           required:"#000",
+},
+uploaded photograph
+{
+           type:'file',
+           required:"image.png",
+},
+email
+{
+           type:'string',
+           required:"foo@bob.in",
+},
+start time
+{
+           type:'integer',
+           required:"10.30AM",
+},
+website Address
+{
+           type:'string',
+           required:"www.w3schools.com",
+},
+Title
+{
+
+           type:'string',
+           required:"Grootan test",
+},        
+subTitle
+{
+             type:'string'
+             required:"Round 2"
+}
+CGPA
+{
+                type:"integer"
+},                required:"1-10"
+
+        onSubmit: function (errors, values) {
+          if (errors) {
+            $('#res').html('<p>I beg your pardon?</p>');
+          }
+          else {
+            $('#res').html('<p>Hello ' + values.name + '.' +
+              (values.age ? '<br/>You are ' + values.age + '.' : '') +
+              '</p>');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
